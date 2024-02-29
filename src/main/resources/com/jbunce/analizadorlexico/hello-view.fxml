@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import org.fxmisc.flowless.*?>
+<?import org.fxmisc.richtext.*?>
+
+<BorderPane prefHeight="768" prefWidth="1366" stylesheets="@hello-view.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jbunce.analizadorlexico.controllers.HelloController">
+    <top>
+        <MenuBar prefHeight="26.0" prefWidth="722.0">
+            <Menu text="File">
+                <MenuItem onAction="#openFolder" text="Open folder" />
+                <MenuItem text="Save" />
+            </Menu>
+        </MenuBar>
+    </top>
+    <center>
+        <VBox>
+            <HBox>
+                <Label fx:id="codet" maxWidth="Infinity" HBox.hgrow="ALWAYS">
+                    untitled
+                </Label>
+            </HBox>
+            <VirtualizedScrollPane fx:id="codeScrollPane" VBox.vgrow="ALWAYS">
+                <content>
+                    <CodeArea onKeyReleased="#onCodeAreaChange" fx:id="codeArea" />
+                </content>
+            </VirtualizedScrollPane>
+        </VBox>
+    </center>
+    <right>
+        <VBox prefHeight="522.0" prefWidth="326.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextFlow fx:id="infoArea" prefHeight="524.0" prefWidth="326.0" />
+         </children>
+        </VBox>
+    </right>
+    <left>
+        <VBox>
+            <Label fx:id="explorert" maxWidth="Infinity" VBox.vgrow="ALWAYS"> Explorer </Label>
+            <HBox fx:id="fileControls" prefHeight="30.0" prefWidth="200.0">
+                <children>
+                    <Button fx:id="newFileBtn" mnemonicParsing="false" onMouseClicked="#setInput" prefHeight="26.0" prefWidth="18.0" text="+" />
+                    <TextField fx:id="fileField" onKeyPressed="#newFile" prefHeight="26.0" prefWidth="178.0" visible="false" />
+                </children>
+            </HBox>
+            <VBox fx:id="filesVbox" prefHeight="584.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+        </VBox>
+    </left>
+    <bottom>
+        <VBox>
+            <Label fx:id="logt" maxWidth="Infinity">
+                Code log
+            </Label>
+            <ScrollPane fitToHeight="true" fitToWidth="true" maxWidth="Infinity" style="-fx-border-width: 0; -fx-focus-traversable: false" VBox.vgrow="ALWAYS">
+                <TextFlow fx:id="logArea" maxWidth="Infinity" prefHeight="200.0" prefWidth="500.0" />
+            </ScrollPane>
+        </VBox>
+    </bottom>
+</BorderPane>
